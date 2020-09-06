@@ -66,5 +66,8 @@
 
     <button [disabled]="addForm.invalid" class="btn btn-primary">Submit</button>
   </form>
-
+<br>
+  <pre>
+    {{addForm.value | json}}
+  </pre>
 </div>
