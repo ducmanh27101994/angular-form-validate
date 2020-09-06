@@ -1,0 +1,23 @@
+<form (ngSubmit)="clickSubmit()" [formGroup]="formContact">
+  <input placeholder="name" formControlName="name"><br>
+  <div *ngIf="name.invalid && name.touched" class="alert alert-danger" role="alert">
+    Tên không được để trống!
+  </div>
+  <input placeholder="age" formControlName="age"><br>
+  <div *ngIf="age.invalid && age.touched">
+    Tuổi không được để trống!
+  </div>
+  <input placeholder="phone" formControlName="phone"><br>
+  <div *ngIf="age.invalid && age.touched">
+    SDT khong dc de trong
+  </div>
+  <input placeholder="address" formControlName="address"><br>
+  <div formGroupName="gender">
+  <label><input  type="checkbox" name="male" formControlName="male">male</label>
+  <label><input type="checkbox" name="female" formControlName="female">female</label>
+  </div>
+<br>
+
+  <button [disabled]="formContact.invalid">Submit</button>
+
+</form>

@@ -5,17 +5,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NameCardComponent } from './name-card/name-card.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { FormComponent } from './form/form.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NameCardComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    FormComponent,
+    ReactiveFormComponent,
+    RegisterComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+      ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

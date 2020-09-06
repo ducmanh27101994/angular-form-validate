@@ -1,0 +1,14 @@
+
+<form (submit)="onSubmit(formLogin)" #formLogin="ngForm">
+
+<input placeholder="Email" type="email" ngModel #txtEmail="ngModel" name="email" required>
+  <p *ngIf="txtEmail.touched && txtEmail.errors?.required"
+  >Email is required</p>
+<br><br>
+<input placeholder="Password" type="password" ngModel #txtPassword='ngModel' name="password" required>
+  <p *ngIf="txtPassword.touched && txtPassword.errors?.required"
+  >Password is required</p>
+<br><br>
+<button [disabled]="formLogin.invalid">Submit</button>
+
+</form>
