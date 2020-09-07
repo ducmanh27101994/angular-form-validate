@@ -7,8 +7,14 @@
       <label for="exampleInputEmail1">Email address</label>
       <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" aria-describedby="emailHelp" placeholder="info@example.com">
     </div>
-    <div *ngIf="email.invalid && email.touched" class="alert alert-danger" role="alert">
-      Email không được để trống và theo chuẩn 'info@example.com'!
+    <div *ngIf="email.invalid && (email.touched || email.dirty)" class="alert alert-danger" role="alert">
+     <div *ngIf="email.errors.required">
+       Email không được để trống!!
+     </div>
+      <div *ngIf="email.errors.email">
+        Không đúng định dạng email
+      </div>
+
     </div>
 
     <fieldset formGroupName="pwGroup">
@@ -43,8 +49,13 @@
       <label >Age</label>
       <input type="number" class="form-control" formControlName="age" value="18">
     </div>
-    <div *ngIf="age.invalid && age.touched" class="alert alert-danger" role="alert">
-      Tuổi không được để trống và phải lớn hơn 18!
+    <div *ngIf="age.invalid && (age.touched || age.dirty)" class="alert alert-danger" role="alert">
+      <div *ngIf="age.errors.required">
+        Tuổi không được để trống
+      </div>
+      <div *ngIf="age.errors.min">
+        Tuổi phải lớn hơn 18
+      </div>
     </div>
 
     <div class="form-group row">
@@ -54,13 +65,23 @@
         <label><input type="radio" formControlName="gender" value="female">Female</label>
       </div>
     </div>
+    <div *ngIf="gender.invalid && (gender.touched || gender.dirty)" class="alert alert-danger" role="alert">
+        <div *ngIf="gender.errors.required">
+            Giới tính không được để trống
+        </div>
+    </div>
 
     <div class="form-group">
       <label>Phone</label>
       <input type="text" class="form-control" formControlName="phone" placeholder="+84xxxxxxxxx">
     </div>
-    <div *ngIf="phone.invalid && phone.touched" class="alert alert-danger" role="alert">
-      Số điện thoại không được để trống !
+    <div *ngIf="phone.invalid && (phone.touched || phone.dirty)" class="alert alert-danger" role="alert">
+      <div *ngIf="phone.errors.required">
+        Số điện thoại không được để trống
+      </div>
+      <div *ngIf="phone.errors.pattern">
+        Số điện thoại không đúng định dạng
+      </div>
     </div>
 
 

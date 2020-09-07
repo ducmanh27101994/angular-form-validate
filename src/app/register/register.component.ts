@@ -59,5 +59,9 @@ export class RegisterComponent implements OnInit {
     return this.addForm.get('phone');
   }
 
+  get gender(){
+    return this.addForm.get('gender');
+  }
+
 
 }
